@@ -4,6 +4,7 @@ void onTick(CBlob@ this)
 	this.addCommandID("AddScriptSync");
 	this.addCommandID("SetPosition");
 	this.addCommandID("SetVelocity");
+	this.addCommandID("SetGravity");
 	this.getCurrentScript().tickFrequency = 0;
 }
 
@@ -41,6 +42,18 @@ void onCommand(CBlob@ this, u8 cmd, CBitStream@ params)
 			this.setVelocity(velocity);
 		}
 		else 
+		{
+			error("Error reading Vec2f param for velocity. Forgot to add?");
+		}
+	} 
+	else if (cmd == this.getCommandID("SetGravity"))
+	{
+		f32 gravity;
+		if(params.saferead_f32(gravity))
+		{
+			this.getShape().SetGravityScale(gravity);
+		}
+		else
 		{
 			error("Error reading Vec2f param for velocity. Forgot to add?");
 		}
