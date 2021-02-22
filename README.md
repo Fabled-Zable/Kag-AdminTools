@@ -33,3 +33,6 @@ This makes bob jump very high.
 ```AngelScript
 /rcon CBlob@ b = getPlayerByUsername('bob').getBlob(); CBitStream p; p.write_Vec2f(Vec2f(0,-16)); b.SendCommand(b.getCommandID('SetVelocity'),p);
 ```
+
+## Need help?
+You can contact me on discord @Zable#2593. I am in many of the King Arthur's Gold discord servers but if you have trouble finding me there you can always friend me and send me a DM.
