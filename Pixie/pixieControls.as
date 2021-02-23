@@ -94,24 +94,4 @@ void onTick(CMovement@ this)
     {
         b.SetFacingLeft(true);
     }
-
-
-    IEffectMode@ mode;
-    b.get("mode",@mode);
-    if(mode.getType() != "music")
-    {
-        CControls@ controls = getControls();
-        if(controls.isKeyJustPressed(KEY_KEY_V))
-        {
-            b.set_bool("noclip",!b.get_bool("noclip"));
-
-            b.Sync("noclip", false);
-        }
-        if(controls.isKeyJustPressed(KEY_KEY_G))
-        {
-            b.set_bool("gravity",!b.get_bool("gravity"));
-            b.Sync("gravity", false);
-        }
-    }
-
 }
