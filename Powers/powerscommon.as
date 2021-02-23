@@ -62,11 +62,21 @@ class CForce : CPowerBase
 	void onTick() override
 	{
 		CBlob@ blob = vars.getBlob();
+		bool pull = false;
+
+		if(!blob.isKeyPressed(key_action1) && !blob.isKeyPressed(key_action2))
+		{
+			return;
+		}
+
+		if (blob.isKeyPressed(key_action2))
+		{
+			pull = true;
+		}
 
 		CBlob@[] blobs;
 		CMap@ m = getMap();
 
-		vars.targetName = "pixie";
 		if ((vars.targetName == "" && vars.targets.size() == 0) || vars.targetName != "")
 		{
 			m.getBlobsInRadius(blob.getAimPos(), radius, blobs);
@@ -107,7 +117,19 @@ class CForce : CPowerBase
 			f32 dist = diff.Length();
 			diff.Normalize();
 
-			b.setVelocity(b.getVelocity() + diff * (strength * (1/(dist + 1))));
+			Vec2f force;
+
+			if(pull)
+			{
+				force = diff * -(dist * ((strength/2)/radius));
+			}	
+			else 
+			{
+				force = diff * (strength * (1/(dist + 1)));
+			}
+
+			b.setVelocity(b.getVelocity() + force);
+
 		}
 	}
 }
