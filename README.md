@@ -21,7 +21,7 @@ Description: Sets the position of the blob to the param provided.
 This teleports bob to his cursor.
 
 ```AngelScript
-/rcon CBlob@ b = getPlayerByUsername('bob').getBlob(); CBitStream p; p.write_Vec2f(b.getAimPos()); b.SendCommand('SetPosition',p);
+/rcon CBlob@ b = getPlayerByUsername('bob').getBlob(); CBitStream p; p.write_Vec2f(b.getAimPos()); b.SendCommand(b.getCommandID('SetPosition'),p);
 ```
 
 ### Set Velocity
@@ -31,5 +31,5 @@ Description: Sets the velocity of the blob to the param provided.
 This makes bob jump very high.
 
 ```AngelScript
-/rcon CBlob@ b = getPlayerByUsername('bob').getBlob(); CBitStream p; p.write_Vec2f(Vec2f(0,-16)); b.SendCommand('SetVelocity',p);
+/rcon CBlob@ b = getPlayerByUsername('bob').getBlob(); CBitStream p; p.write_Vec2f(Vec2f(0,-16)); b.SendCommand(b.getCommandID('SetVelocity'),p);
 ```
