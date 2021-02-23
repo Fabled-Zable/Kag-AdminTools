@@ -1,0 +1,3 @@
+[submodule "NuTools"]
+	path = NuTools
+	url = https://github.com/SadNuman/NuTools

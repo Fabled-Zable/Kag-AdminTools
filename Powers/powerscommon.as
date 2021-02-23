@@ -1,6 +1,7 @@
 class CPowerVars
 {
 	u16 thisblob;
+	CSprite@ sprite;
 	u16[] targets; //used for multiple targets
 	string targetName; //used for targeting all blobs of a certain name
 
@@ -26,6 +27,7 @@ class CPowerBase : IPower
 	{
 		CPowerVars vars;
 		vars.thisblob = blob.getNetworkID();
+		@vars.sprite = vars.getBlob().getSprite();
 		@this.vars = vars;
 	}
 
@@ -131,5 +133,10 @@ class CForce : CPowerBase
 			b.setVelocity(b.getVelocity() + force);
 
 		}
+	}
+
+	void onRender() override
+	{
+
 	}
 }
