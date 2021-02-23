@@ -1,18 +1,18 @@
-
+#include "powerscommon.as"
 
 void onInit(CBlob@ this)
 {
-	IPower[] powers;
+	IPower@[] powers;
+	powers.push_back(@CForce(this));
 	this.set("powerlist",@powers);
-	IPower@ activePower;
-	this.set("activepower",activePower);
+	this.set("activepower",@powers[0]);
 	
 }
 
 void onTick(CBlob@ this)
 {
 	IPower@ activePower;
-	this.get("activepower", activePower);
+	this.get("activepower", @activePower);
 	if(activePower !is null)
 	{
 		activePower.onTick();
@@ -21,8 +21,9 @@ void onTick(CBlob@ this)
 
 void onTick(CSprite@ this)
 {
+	CBlob@ blob = this.getBlob();
 	IPower@ activePower;
-	this.get("activepower", activePower);
+	blob.get("activepower", @activePower);
 	if(activePower !is null)
 	{
 		activePower.onSprite();
@@ -31,8 +32,9 @@ void onTick(CSprite@ this)
 
 void onRender(CSprite@ this)
 {
+	CBlob@ blob = this.getBlob();
 	IPower@ activePower;
-	this.get("activepower", activePower);
+	blob.get("activepower", @activePower);
 	if(activePower !is null)
 	{
 		activePower.onRender();
