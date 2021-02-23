@@ -3,7 +3,7 @@
 A set of useful tools for admins to use *or play with*.
 
 ## **<span style="color:red">IMPORTANT!</span>**
-Add all scripts under the ``Gamemode`` directory to gamemode.cfg in whatever your main mod is. If you don't do this then you may be missing some features. The admin classes should still work though.
+Add all scripts under the ``Gamemode`` directory to gamemode.cfg in whatever your main mod is. If you don't do this then you may be missing some features. The admin classes should still work though. <span style="color:yellow">Warning: doing this will also add ``NuHubLogic.as`` to the rules with the use of the AddScript function. This is done to make the install process easier.</span>
 
 ## Extra Blob Commands
 ### Add Script Sync 💻
